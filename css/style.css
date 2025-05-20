@@ -71,9 +71,11 @@ body {
     }
 
     .product img {
-      max-width: 100%;
+      width: 40%; /* O usa 200px si prefieres un tamaño fijo */
       height: auto;
       border-radius: 8px;
+      margin: 0 auto;
+      display: block;
     }
 
     .product h2 {
@@ -190,4 +192,9 @@ button {
   border: none;
   font-size: 1rem;
   cursor: pointer;
+}
+@media (max-width: 768px) {
+  .product-container {
+    grid-template-columns: 2fr;
+  }
 }
