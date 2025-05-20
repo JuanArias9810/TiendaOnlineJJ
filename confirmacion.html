@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Confirmación de Pedido</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 500px;
+      margin: 2rem auto;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #f9f9f9;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 1.5rem;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 4px;
+    }
+    button:disabled {
+      background-color: #999;
+      cursor: not-allowed;
+    }
+    #mensaje-gracias {
+      margin-top: 2rem;
+      font-size: 1.2em;
+      color: green;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Confirmación de Pedido</h1>
+
+  <form id="form-confirmacion" onsubmit="event.preventDefault(); confirmarPedido();">
+
+    <label for="nombre">Nombre completo:</label>
+    <input type="text" id="nombre" name="nombre" required />
+
+    <label for="direccion">Dirección:</label>
+    <input type="text" id="direccion" name="direccion" required />
+
+    <label for="ciudad">Ciudad:</label>
+    <select id="ciudad" name="ciudad" required>
+      <option value="" disabled selected>Selecciona una ciudad</option>
+      <option value="Bogotá">Bogotá</option>
+      <option value="Medellín">Medellín</option>
+      <option value="Cali">Cali</option>
+      <option value="Barranquilla">Barranquilla</option>
+      <option value="Cartagena">Cartagena</option>
+      <option value="Bucaramanga">Bucaramanga</option>
+      <option value="Pereira">Pereira</option>
+      <!-- Agrega más ciudades según necesites -->
+    </select>
+
+    <label for="medioPago">Medio de pago:</label>
+    <select id="medioPago" name="medioPago" required>
+      <option value="" disabled selected>Selecciona un medio de pago</option>
+      <option value="Contra entrega">Contra entrega</option>
+      <option value="PSE">PSE</option>
+    </select>
+
+    <p><strong>Pedido a pagar:</strong> <span id="pedido-pagar">Aquí va el pedido</span></p>
+
+    <button type="submit">Confirmar pedido</button>
+  </form>
+
+  <div id="mensaje-gracias" style="display:none;">
+    ¡Gracias por tu compra! Tu pedido ha sido recibido.
+  </div>
+
+  <script>
+    // Ejemplo de número de pedido y total, ideal que venga por query params o sessionStorage
+    const numeroPedido = Math.floor(Math.random() * 900000) + 100000;
+    const total = 1234567; // Ejemplo: total en pesos
+
+    // Actualizar texto del pedido a pagar (puedes modificarlo para mostrar productos)
+    document.getElementById('pedido-pagar').textContent = `#${numeroPedido} - Total: $${total.toLocaleString()}`;
+
+    function confirmarPedido() {
+      const nombre = document.getElementById("nombre");
+      const direccion = document.getElementById("direccion");
+      const ciudad = document.getElementById("ciudad");
+      const medioPago = document.getElementById("medioPago");
+      const botonConfirmar = document.querySelector('button[type="submit"]');
+      const formulario = document.getElementById("form-confirmacion");
+      const mensajeGracias = document.getElementById("mensaje-gracias");
+
+      if (!nombre.value || !direccion.value || !ciudad.value || !medioPago.value) {
+        alert("Por favor completa todos los campos.");
+        return;
+      }
+
+      alert(`¡Pedido confirmado!\n\nNúmero de pedido: ${numeroPedido}\nNombre: ${nombre.value}\nDirección: ${direccion.value}\nCiudad: ${ciudad.value}\nMedio de pago: ${medioPago.value}\nTotal: $${total.toLocaleString()}`);
+
+      // Deshabilitar campos y botón para evitar más cambios o envíos
+      nombre.disabled = true;
+      direccion.disabled = true;
+      ciudad.disabled = true;
+      medioPago.disabled = true;
+      botonConfirmar.disabled = true;
+
+      // Ocultar formulario y mostrar mensaje de gracias
+      formulario.style.display = "none";
+      mensajeGracias.style.display = "block";
+    }
+  </script>
+
+</body>
+</html>

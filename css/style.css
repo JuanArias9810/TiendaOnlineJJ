@@ -1,0 +1,193 @@
+:root {
+  --primary-color: #7e47fd;
+  --secondary-color: #FFD166;
+  --bg-color: #FDF5E6;
+  --text-color: #333;
+  --header-bg: #ADD8E6;
+}
+
+body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    .header {
+      background-color: var(--header-bg);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-family: 'Pacifico', cursive;
+      color: #555;
+      font-size: 2.5em;
+    }
+
+    .filter-bar {
+      background-color: #ffffff;
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .filter-bar button {
+      background-color: var(--primary-color);
+      border: none;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .filter-bar button:hover {
+      background-color: #e85c50;
+    }
+
+    /* Contenedor de productos */
+    .product-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 20px;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+
+    .product {
+      background-color: white;
+      border: 2px solid var(--primary-color);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .product img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .product h2 {
+      color: var(--primary-color);
+    }
+
+    .product p {
+      margin: 10px 0;
+    }
+
+    button {
+      background-color: var(--secondary-color);
+      border: none;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #fcbf49;
+    }
+
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      padding: 15px;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .whatsapp a {
+      color: white;
+      font-size: 24px;
+      text-decoration: none;
+    }
+    .filter-bar button.active {
+      background-color: #333;
+      color: #fff;
+    }
+
+    .product-detail {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+  padding: 20px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.product-detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.close-btn {
+  align-self: flex-end;
+  cursor: pointer;
+  font-size: 20px;
+  color: #888;
+}
+
+select {
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 16px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo {
+  height: 60px; /* Ajusta el tamaño a tu gusto */
+  margin-right: 15px; /* Espacio entre el logo y el texto */
+}
+
+.item-carrito {
+  margin-bottom: 10px;
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+}
+.item-carrito button {
+  color: red;
+}
+form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 1rem;
+}
+
+input, select {
+  padding: 8px;
+  font-size: 1rem;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}

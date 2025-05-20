@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+  <meta charset="UTF-8" />
+  <title>Tienda Online JJ Shop</title>
+  <script src="https://checkout.epayco.co/checkout.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="header">
+    <img src="imagenes/LogoPaginaWeb.png" alt="Logo de la tienda" class="logo" />
+    <h1>Bienvenido a Mi Tienda</h1>
+  </div>
+
+
+  <div class="filter-bar">
+    <button onclick="mostrarTodosLosProductos(event)">Inicio</button>
+    <button onclick="filtrarProductos('tecnologia', event)">Tecnología</button>
+    <button onclick="filtrarProductos('belleza', event)">Productos de Belleza</button>
+    <button onclick="filtrarProductos('ropa', event)">Ropa</button>
+    <button onclick="filtrarProductos('hogar', event)">Productos para el Hogar</button>
+  </div>
+
+  <div class="product-container">
+    <!-- Aquí irían los productos (puedes moverlos o cargarlos con JS luego) -->
+  </div>
+
+  <div class="whatsapp">
+    <a href="https://wa.me/573123897199" target="_blank" title="Chat en WhatsApp">💬</a>
+  </div>
+
+  <div id="btn-carrito" style="display:none; position: fixed; bottom: 90px; right: 20px;">
+    <button onclick="mostrarCarrito()">🛒 Ir a pago</button>
+  </div>
+
+  <div id="product-detail" class="product-detail" style="display: none;">
+    <div class="product-detail-content">
+      <span class="close-btn" onclick="cerrarDetalle()">✖</span>
+      <h2 id="detalle-nombre"></h2>
+      <p id="detalle-descripcion"></p>
+      <label for="cantidad">Cantidad:</label>
+      <select id="cantidad" onchange="actualizarPrecio()">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <p><strong>Precio total:</strong> $<span id="detalle-precio-total">0</span></p>
+      <button onclick="agregarAlCarrito()">Agregar al carrito</button>
+    </div>
+  </div>
+
+  <div id="carrito-detalle" class="product-detail" style="display: none;">
+    <div class="product-detail-content">
+      <span class="close-btn" onclick="cerrarCarrito()">✖</span>
+      <h2>Carrito de compras</h2>
+      <div id="carrito-lista"></div>
+      <p><strong>Total a pagar:</strong> $<span id="total-carrito">0</span></p>
+      <button onclick="realizarPago()">Realizar pago</button>
+    </div>
+  </div>
+
+  <script src="js/productos.js"></script>
+</body>
+</html>
